@@ -15,8 +15,8 @@ class Manager {
         this.booksArray.sort((book1, book2) => book1.title.localeCompare(book2.title));
     }
 
-    orderByDop() {
-        this.booksArray.sort((book1, book2) => book1.dop.localeCompare(book2.dop));
+    orderByYop() {
+        this.booksArray.sort((book1, book2) => book1.yop.localeCompare(book2.yop));
     }
 
 

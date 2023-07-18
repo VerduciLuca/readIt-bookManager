@@ -10,7 +10,7 @@ class DBService{
     }
 
     //DELETE
-    static deleteBook(id){
+    static removeBook(id){
         console.log('delete', id);
         const deleteUrl = 'https://64b512c3f3dbab5a95c6a4a9.mockapi.io/books' + id;
         console.log(deleteUrl);
@@ -34,8 +34,8 @@ class DBService{
         const tempArray = [];
 
         for (const obj of genericArray) {
-            const newTodo = new Todo(obj.title, obj.isCompleted, new Date(obj.creationDate), obj.id)
-            tempArray.push(newTodo);
+            const newBook = new Book(obj.title, obj.author, new Date(obj.yop), obj.id,obj.genre)
+            tempArray.push(newBook);
         }
 
         return tempArray;

@@ -1,13 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
+
 
 
 let manager;
 
-DBService.getAllBooks().then((books) => {
-    manager = new Manager(books);
-    render(manager.booksArray);
-});
-})
+DBService.getAllBooks()
+    .then((books) => {
+        manager = new Manager(books);
+        render(manager.booksArray);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 
 function render(booksArray) {
     let booksDiv = document.getElementById("books-div");
@@ -37,12 +40,30 @@ function render(booksArray) {
     yop.appendChild(yopNode)
     card.appendChild(yop)
 
+    const genre = document.createElement('span')
+    const genreNode = document.createTextNode(book.genre)
+
+    genre.appendChild(genreNode)
+    card.appendChild(genre)
+
+    const deleteBtn = document.createElement('button')
+    const deleteNode = document.createTextNode('Delete')
+
+    deleteBtn.appendChild(deleteNode)
+    card.appendChild(deleteBtn)
+
+    deleteBtn.addEventListener('click', () => {
+        DBService.removeBook(book.id).then(() => {
+            manager.removeBook(i);
+            render(manager.booksArray);
+        });
+    });
 
     booksDiv.appendChild(card)
+
 
 
     }
 }
 
-render()
 

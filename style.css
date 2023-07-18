@@ -1,0 +1,38 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    background-color: rgb(255, 174, 69);
+}
+
+header{
+    align-self:flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#books-div{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+h1{
+    rotate: -90deg;
+    margin-left: -200px;
+}
+
+.card{
+    background-color: rgb(255, 248, 48);
+    height: 250px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 18px;
+}
